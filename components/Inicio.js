@@ -11,7 +11,7 @@ import React, {Component} from 'react';
 import {View, TextInput, Button, ImageBackground, Alert} from 'react-native';
 import Resultado from '../components/Resultado';
 import Spinner from '../components/Spinner';
-import Orientation from 'react-native-orientation';
+//import Orientation from 'react-native-orientation';
 import Splash from './Splash';
 import verificarCUIL from '../functions/VerificarCUIL';
 import consultarCUIL from '../api/ConsultarCUIL';

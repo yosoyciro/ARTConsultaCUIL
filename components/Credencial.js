@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Image, ImageBackground} from 'react-native';
+import {Text, ImageBackground} from 'react-native';
 import Orientation from 'react-native-orientation';
 
 export default class Credencial extends Component {
