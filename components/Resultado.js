@@ -11,7 +11,6 @@ export default class Resultado extends Component {
     //alert(this.props.texto);
     return (
       <View>
-        <Text>CUIL Ingresada: {this.props.cuil}</Text>
         <Text>{this.props.resultado}</Text>
         {this.props.nombre !== '' ? (
           <Text>Nombre: {this.props.nombre}</Text>

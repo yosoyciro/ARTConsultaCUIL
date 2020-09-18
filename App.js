@@ -1,24 +1,27 @@
-import * as React from 'react';
-import Inicio from './components/Inicio';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import Credencial from './components/Credencial';
+import React, {Component} from 'react';
+import Layout from './components/Navigation/router';
+import Orientation from 'react-native-orientation';
+import Splash from './components/Visuales/Splash';
 
-const Stack = createStackNavigator();
+//import {registerRootComponent} from 'expo';
 
-function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Inicio"
-          component={Inicio}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen name="Credencial" component={Credencial} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showSplash: true,
+    };
+  }
+
+  componentDidMount() {
+    Orientation.lockToPortrait();
+    console.log('Inicio showSplash: ' + this.state.showSplash);
+    setTimeout(() => {
+      this.setState({showSplash: false});
+    }, 3000);
+  }
+
+  render() {
+    return <>{this.state.showSplash === false ? <Layout /> : <Splash />}</>;
+  }
 }
-
-export default App;
