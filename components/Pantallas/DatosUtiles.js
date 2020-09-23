@@ -54,14 +54,15 @@ export default class PreguntasFrecuentes extends Component {
         borderRadius: 30,
         borderWidth: 1,
         borderColor: '#F8A700',
-        width: '90%',
-        marginLeft: 20,
+        width: '100%',
+        //marginLeft: 20,
         //height: 30,
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'stretch',
-        marginTop: 2,
+        //marginTop: 2,
         padding: 7,
+        position: 'relative',
       },
       mainBody: {
         alignSelf: 'stretch',
@@ -70,10 +71,12 @@ export default class PreguntasFrecuentes extends Component {
         marginBottom: 10,
         backgroundColor: '#ED6F00',
         width: '90%',
-        borderRadius: 30,
-        borderWidth: 1,
+        borderRadius: 25,
+        borderWidth: 0,
         borderColor: '#ED6F00',
         marginLeft: 20,
+        //marginTop: -40,
+        //paddingTop: 20,
       },
       header: {
         paddingVertical: 5,
@@ -87,6 +90,7 @@ export default class PreguntasFrecuentes extends Component {
         fontSize: 18,
         width: '100%',
         textAlign: 'left',
+        fontFamily: 'Montserrat-Bold',
       },
       bodyText: {
         color: 'white',
@@ -96,6 +100,7 @@ export default class PreguntasFrecuentes extends Component {
         alignSelf: 'stretch',
         padding: 10,
         marginLeft: 20,
+        fontFamily: 'Montserrat-Medium',
       },
     });
 
@@ -108,13 +113,12 @@ export default class PreguntasFrecuentes extends Component {
             ? this.state.datos.map((param, i) => {
                 return (
                   <>
-                    <View style={styles.main}>
-                      <TouchableOpacity>
-                        <Text style={styles.headerText}>{param.titulo}</Text>
-                      </TouchableOpacity>
-                    </View>
-
                     <View style={styles.mainBody}>
+                      <View style={styles.main}>
+                        <TouchableOpacity>
+                          <Text style={styles.headerText}>{param.titulo}</Text>
+                        </TouchableOpacity>
+                      </View>
                       <Text
                         style={styles.bodyText}
                         onPress={() => {

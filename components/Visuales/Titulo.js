@@ -20,8 +20,9 @@ const styles = StyleSheet.create({
   background: {
     width: '100%',
     color: 'white',
-    fontSize: 22,
+    fontSize: 27,
     justifyContent: 'center',
     textAlign: 'center',
+    fontFamily: 'Montserrat-Medium',
   },
 });

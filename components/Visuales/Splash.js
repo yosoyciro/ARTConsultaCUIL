@@ -7,16 +7,13 @@ export default class Splash extends Component {
     const styles = StyleSheet.create({
       backgroundImage: {
         flex: 1,
-        resizeMode: 'stretch', // or 'stretch'
-        backgroundColor: 'white',
+        resizeMode: 'cover', // or 'stretch'
         width: '100%',
-        height: '100%',
       },
     });
     return (
       <Image
         source={require('../../images/Splash.png')}
-        backgroundColor="white"
         style={styles.backgroundImage}
       />
     );

@@ -2,7 +2,6 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 //import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
-import Login from '../Pantallas/Login';
 import Menu from '../Pantallas/Menu';
 import VerDatos from '../Pantallas/VerDatos';
 //import Credencial from '../../screens/drawer/Credencial';
@@ -17,7 +16,7 @@ export default class Layout extends React.Component {
     super(props);
 
     this.state = {
-      signedIn: false,
+      isLogged: false,
       checkedSignIn: false,
     };
   }
@@ -51,11 +50,6 @@ export default class Layout extends React.Component {
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen
-            name="Login"
-            component={Login}
-            options={{headerShown: false}}
-          />
           <Stack.Screen
             name="Menu"
             component={Menu}

@@ -6,23 +6,34 @@ import verificarCUIL from '../../functions/VerificarCUIL';
 import LoginCUIL from '../../api/AfiliadoDatos/LoginCUIL';
 //import {onSignIn} from './auth';
 import Header from '../Visuales/Header';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {TouchableOpacity} from 'react-native';
+import Splash from '../Visuales/Splash';
+import BuscarPorCUILCompleto from '../../api/AfiliadoDatos/BuscarPorCUILCompleto';
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
+    this.handleLogin = this.handleLogin.bind(this);
     this.state = {
-      cuil: 0,
+      cuil: 20227180871,
       verGrilla: false,
       cuilValido: false,
       resultado: null,
       nombre: '',
       loading: false,
-      showSplash: false,
+      showSplash: true,
+      isLogged: true,
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    //Orientation.lockToPortrait();
+    console.log('Inicio showSplash: ' + this.state.showSplash);
+    setTimeout(() => {
+      this.setState({showSplash: false});
+    }, 3000);
+  }
+
   render() {
     //Estilos
     const styles = StyleSheet.create({
@@ -45,6 +56,7 @@ export default class Login extends Component {
         height: 40,
         width: 320,
         fontSize: 20,
+        fontFamily: 'Montserrat-Medium',
       },
       ingresarButtonStyle: {
         marginTop: 10,
@@ -56,46 +68,54 @@ export default class Login extends Component {
         width: 320,
         alignItems: 'center',
         justifyContent: 'center',
+        fontFamily: 'Montserrat-Medium',
       },
       texto: {
         fontSize: 20,
         color: 'white',
-        fontFamily: 'Montserrat',
+        fontFamily: 'Montserrat-Medium',
       },
     });
 
     return (
       <>
-        <Header />
-        <Background />
-        <View style={styles.background}>
-          {this.state.loading === false ? (
-            <>
-              <TextInput
-                style={styles.cuilInputStyle}
-                onChangeText={this.changeCUIL}
-                value={this.state.cuil}
-                placeholder="CUIL/CUIT"
-                keyboardType={'numeric'}
-                //defaultValue="20227180871"
-              />
-              <TouchableOpacity
-                style={styles.ingresarButtonStyle}
-                activeOpacity={0.5}
-                onPress={this.onPress}>
-                <Text style={styles.texto}> INICIAR SESION </Text>
-              </TouchableOpacity>
-            </>
-          ) : (
-            <Spinner />
-          )}
-        </View>
+        {this.state.showSplash === true ? (
+          <Splash />
+        ) : (
+          <>
+            <Header />
+            <Background />
+            <View style={styles.background}>
+              {this.state.loading === false ? (
+                <>
+                  <TextInput
+                    style={styles.cuilInputStyle}
+                    onChangeText={this.changeCUIL}
+                    value={this.state.cuil}
+                    placeholder="CUIL/CUIT"
+                    keyboardType={'numeric'}
+                    defaultValue="20227180871"
+                  />
+                  <TouchableOpacity
+                    style={styles.ingresarButtonStyle}
+                    activeOpacity={0.5}
+                    onPress={this.onPress}
+                    disabled={false}>
+                    <Text style={styles.texto}> INICIAR SESION </Text>
+                  </TouchableOpacity>
+                </>
+              ) : (
+                <Spinner />
+              )}
+            </View>
+          </>
+        )}
       </>
     );
   }
 
   onPress = async () => {
-    //console.log('inicia login ' + this.state.cuil);
+    console.log('inicia login ' + this.state.cuil);
     this.setState({loading: !this.state.loading});
     const esCUILValido = await verificarCUIL(this.state.cuil);
     //console.log('esCUILValido: ' + esCUILValido);
@@ -109,12 +129,10 @@ export default class Login extends Component {
         this.setState({
           cuilValido: true,
         });
-        //const resp = await consultarCUIL(this.state.cuil);
         const resp = await LoginCUIL(this.state.cuil);
-        //console.log('resp.Nombre: ' + JSON.stringify(resp));
-        this.setState({loading: !this.state.loading});
         switch (resp.Nombre) {
           case '':
+            this.setState({loading: !this.state.loading});
             Alert.alert('CUIT/CUIL no registrado');
             break;
           default:
@@ -122,9 +140,10 @@ export default class Login extends Component {
               resultado: resp.Resultado,
               nombre: resp.Nombre,
             });
-            //this.props.handleLogin(resp.Nombre, this.state.cuil);
-            //onSignIn(this.state.cuil);
-            this.props.navigation.navigate('Menu', {cuil: this.state.cuil});
+            //this.setState({loading: !this.state.loading});
+            this.handleLogin(this.state.cuil);
+
+            //this.props.navigation.navigate('Menu', {cuil: this.state.cuil});
             break;
         }
         break;
@@ -138,5 +157,19 @@ export default class Login extends Component {
       nombre: '',
       cuilValido: false,
     });
+  };
+
+  handleLogin = cuil => {
+    BuscarPorCUILCompleto(cuil).then(
+      afiliadoDatos => {
+        //console.log(JSON.stringify(afiliadoDatos));
+        this.setState({afiliadoDatos});
+        this.props.handleLogin(afiliadoDatos);
+      },
+      error => {
+        this.setState({loading: !this.state.loading});
+        Alert.alert('Error buscando datos del expuesto ' + error);
+      },
+    );
   };
 }

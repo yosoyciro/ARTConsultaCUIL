@@ -44,13 +44,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#D2D3D5',
     justifyContent: 'center',
     alignSelf: 'stretch',
-    height: '15%',
+    height: '17%',
   },
   containerBlanco: {
     backgroundColor: 'white',
     justifyContent: 'center',
     alignSelf: 'stretch',
-    height: '15%',
+    height: '17%',
   },
   cajas: {
     flexDirection: 'row',
@@ -68,11 +68,12 @@ const styles = StyleSheet.create({
     height: 80,
   },
   texto: {
-    fontSize: 34,
+    fontSize: 38,
     color: 'white',
-    fontWeight: 'bold',
-    marginLeft: 10,
-    fontFamily: 'Montserrat',
+    //fontWeight: 'bold',
+    marginLeft: 40,
+    fontFamily: 'Montserrat-ExtraBold',
+    textAlign: 'right',
   },
   icono: {
     padding: 5,

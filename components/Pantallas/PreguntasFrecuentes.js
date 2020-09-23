@@ -5,6 +5,7 @@ import Titulo from '../Visuales/Titulo';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export default class PreguntasFrecuentes extends Component {
+  //#region inicializador, constructor y preguntas
   constructor(props) {
     super(props);
     this.state = {
@@ -30,13 +31,13 @@ export default class PreguntasFrecuentes extends Component {
         },
         {
           id: 4,
-          title: '¿Cuáles son los objetivos de las ART?',
+          title: '¿Cuáles son los objetivos\nde las ART?',
           body:
             'a) La reducción de la siniestralidad laboral a través de la asistencia técnica y el asesoramiento al empleador en el cumplimiento de sus obligaciones en materia de prevención de los riesgos derivados del trabajo.\nb) La reparación de los daños derivados de accidentes de trabajo y de enfermedades profesionales, incluyendo la rehabilitación del trabajador damnificado.\nc) La promoción de la recalificación y la recolocación de los trabajadores damnificados.\nd) La promoción de la negociación colectiva laboral para la mejora de las medidas de prevención.\n\nLey N° 24.557',
         },
         {
           id: 5,
-          title: '¿Cuáles son las obligaciones de las ART?',
+          title: '¿Cuáles son las obligaciones\nde las ART?',
           body:
             'Las obligaciones de las ART son:\n\na) Declarar en el Registro de Cumplimiento de Normas de Higiene, Salud y Seguridad en el Trabajo, con carácter de declaración jurada, dentro de los 40 días corridos de recibido el Relevamiento General de Riesgos Laborales (RGRL) y el plan de regularización de los incumplimientos denunciados.\nb) Denunciar en el Registro mencionado a los empleadores que no hayan presentado el RGRL al momento de la afiliación y a aquellos que no hayan cumplido con el Plan fijado oportunamente.\nc) Verificar la verosimilitud del relevamiento realizado por el empleador y evaluar si la consistencia del cronograma de regularización se adecua a las características y riesgos de la actividad.\nd) Realizar visitas de verificación de cumplimiento de la normativa de Higiene y Seguridad, según el art. 11 de la Resolución 463/09.\ne) Brindar asesoramiento y ofrecer asistencia técnica a los empleadores afiliados, en las siguientes materias:\n1. La existencia de riesgos y sus potenciales efectos sobre la salud de los trabajadores en el o los establecimientos de ámbito del Contrato.\n2. Normativa vigente en materia de higiene y seguridad en el trabajo.\n3. Selección de elementos de protección personal.\n4. Capacitación que corresponde brindar a los trabajadores.\n5. Información sobre la seguridad en el empleo de productos químicos y biológicos.\nf) Realizar los exámenes médicos periódicos de acuerdo con el formulario Relevamiento de Agentes de Riesgo (RAR), el listado de expuestos y toda la documentación respaldatoria que debe presentar el empleador en forma anual, o ante la ocurrencia de cualquier cambio en el proceso o en la organización del trabajo.\ng) Proveer prestadores médicos para la efectiva realización de los exámenes médicos periódicos y coordinar con el empleador la fecha de realización de los mismos.\nh) Poner a disposición del empleador y/o de los empleados los informes de resultados de los exámenes médicos realizados con sus respectivas recomendaciones.\ni) Denunciar ante la S.R.T. todos los incumplimientos a las normas de Higiene y Seguridad en el Trabajo vigentes.\nj) Mantener un registro actualizado de accidentes y enfermedades profesionales. Realizar actividades permanentes de prevención de riesgos y control de las condiciones y medio ambiente de trabajo.\nk) Promover la integración de comisiones paritarias de riesgos del trabajo y colaborar en su capacitación.\nl) Informar al empleador y a los trabajadores sobre el sistema de prevención establecido en la Ley de Riesgos del Trabajo, en particular sobre los derechos y deberes de cada una de las partes.\nm) Colaborar en las investigaciones y acciones de promoción de la prevención que desarrolle la Superintendencia de Riesgos del Trabajo.\nn) Cumplir toda obligación que establezca la Superintendencia de Riesgos del Trabajo.\no) Para cumplir con las obligaciones establecidas precedentemente, las Aseguradoras deberán contar con profesionales especializados en higiene y seguridad y medicina del trabajo de modo que asegure la atención en materia de prevención de riesgos de sus afiliados.\np) Tener acceso a la información necesaria para cumplir con las prestaciones de la Ley de Riesgos del Trabajo.\nq) Cumplir con las acciones establecidas en las Resoluciones SRT Nro. 559/09 - 51/97- 552/01 - 550/11 - 230/03 - 1721/04 y 1392/05 - 01/05 - 463/09 y modificatorias que correspondan a las mismas.\nr) Poner a disposición del empleador el listado de prestadores, que brindará cobertura a nivel nacional en caso de producirse un accidente laboral o declararse una enfermedad profesional.\ns) Cuando la ART detecte incumplimientos por parte del empleador a las normas de higiene y seguridad en el trabajo, como asimismo los que resulten del Relevamiento General de Riesgos Laborales o los programas específicos establecidos por la Superintendencia de Riesgos del Trabajo, deberá notificarlo a la Superintendencia de Riesgos del Trabajo.\nt) Notificar a la SRT las altas y bajas de empleadores afiliados.',
         },
@@ -85,7 +86,7 @@ export default class PreguntasFrecuentes extends Component {
         {
           id: 13,
           title:
-            '¿Se puede modificar o incorporar cláusulas\nen los certificados de cobertura?',
+            '¿Se puede modificar o incorporar\ncláusulas en los certificados\nde cobertura?',
           body:
             'El contenido de los certificados de cobertura que se emiten por la página Web o se solicitan en las Sucursales y responde a lo establecido en la normativa vigente y su texto cuenta con la aprobación de la Superintendencia de Riesgos del Trabajo, por lo que no se efectúan modificaciones y/o agregados en los mismos.',
         },
@@ -98,7 +99,7 @@ export default class PreguntasFrecuentes extends Component {
         {
           id: 15,
           title:
-            '¿Cuáles son los exámenes médicos\nlaborales obligatorios? (Res. 37/10)',
+            '¿Cuáles son los exámenes\nmédicos laborales obligatorios?\n(Res. 37/10)',
           body:
             'Los exámenes preocupacionales o de ingreso:\n\nSu realización es obligatoria y están a cargo del empleador, debiendo efectuarse de manera previa al inicio de la relación laboral. Tienen como propósito evaluar la aptitud del postulante conforme sus condiciones psicofísicas para el desempeño de las actividades que se le requerirán. Los contenidos de estos exámenes serán, como mínimo, los del ANEXO I de la RES 37/10. En caso de preverse la exposición a los agente de riesgo del Decreto N° 658/96 deberán, además, efectuarse los estudios correspondientes a cada agente, detallados en el ANEXO II.\n\nLos exámenes médicos periódicos:\n\nTienen por objetivo la detección precoz de afecciones producidas por aquellos agentes de riesgo determinados por el Decreto N° 658/96 a los cuales el trabajador se encuentre expuesto con motivo de sus tareas, con el fin de evitar el desarrollo de enfermedades profesionales.',
         },
@@ -122,7 +123,7 @@ export default class PreguntasFrecuentes extends Component {
         {
           id: 17,
           title:
-            '¿Qué normas mínimas de seguridad\ne higiene se deben cumplir?',
+            '¿Qué normas mínimas de\nseguridad e higiene\nse deben cumplir?',
           body:
             'La Ley 19.587/72 de Higiene y Seguridad y sus decretos reglamentarios han establecido para las empresas la obligación legal (conforme a la actividad que desarrollan y la cantidad de trabajadores que emplean) de contratar un ingeniero calificado que brinde el Servicio de Higiene y Seguridad en el Trabajo.\n\n' +
             'Decreto 351/79. Detalle de las medidas de seguridad que los establecimientos deberán tomar en relación a características constructivas, condiciones de higiene en los ambientes laborales, protección personal del trabajador, estadísticas de accidentes y enfermedades del trabajo. Se amplían como anexos los siguientes temas: carga térmica, iluminación, color, ruidos y vibraciones, instalaciones eléctricas, protección contra incendios.\n\n' +
@@ -160,7 +161,7 @@ export default class PreguntasFrecuentes extends Component {
         },
         {
           id: 21,
-          title: '¿Qué hacer en caso de reagravación?',
+          title: '¿Qué hacer en caso\nde reagravación?',
           body:
             'En ese caso se deberá actuar como si fuera un siniestro nuevo (aclarando que es una reagravación* de un siniestro anterior- detallar nro. de caso y/o fecha de PMI), efectuando una nueva denuncia dentro de las 24hs.. La fecha del siniestro debe ser la de la reagravación.\n\n' +
             'En todos los casos, al reingresar el trabajador a sus tareas, el mismo deberá presentar la Constancia de Solicitud de Reingreso y la Constancia de Alta Médica/Fin de Tratamiento - según correspondiera, que documentan el momento y las características del retorno a la actividad.\n\n' +
@@ -169,14 +170,14 @@ export default class PreguntasFrecuentes extends Component {
         {
           id: 22,
           title:
-            '¿Qué debe hacer un empleado ante un\naccidente fuera del ámbito laboral?',
+            '¿Qué debe hacer un empleado\nante un\naccidente fuera\ndel ámbito laboral?',
           body:
             'De permitirlo su estado de salud, deberá concurrir a su empresa y pedir a su superior una Solicitud de Atención Médica, y éste le indicará el lugar al cual debe dirigirse para su atención. De no ser posible llegar a su empresa, deberá comunicarse al 0800-(TEL CECAP), o dirigirse a alguno de los Centros Médicos que se encuentran en la cartilla de prestadores médicos de ART MUTUAL RURAL.\n\n' +
             'Deberá tener siempre a mano su Credencial de ART MUTUAL RURAL y anotar las direcciones de los centros de atención más cercanos a su domicilio y a su lugar de trabajo. Ante un accidente "in itinere", deberá realizar la correspondiente denuncia policial.',
         },
         {
           id: 23,
-          title: '¿Cuál es el procedimiento\npara Reintegro de Gastos Médicos?',
+          title: '¿Cuál es el procedimiento para\nReintegro de Gastos Médicos?',
           body:
             'De acuerdo a la Ley 24.557, art 43, solo se reconocerán prestaciones a partir del momento en que la Aseguradora tome conocimiento de la ocurrencia del accidente.\n\n' +
             'Los accidentes de trabajo y enfermedades profesionales deberán ser atendidos siempre en un prestador médico de la red de ART MUTUAL RURAL. \n\n' +
@@ -224,7 +225,7 @@ export default class PreguntasFrecuentes extends Component {
         },
         {
           id: 24,
-          title: '¿Qué son las prestaciones dinerarias?',
+          title: '¿Qué son las prestaciones\ndinerarias?',
           body:
             'Son pagos mensuales que deben efectuar la ART mientras el damnificado no pueda trabajar, por el tiempo que corresponda y en la cantidad adecuada, en caso de accidente o enfermedad profesional. En los casos que corresponda, la ART debe pagar también una indemnización.\n\n' +
             'Estos pagos se determinan según el tipo de incapacidad, y tienen como finalidad reparar los daños causados.\n\n' +
@@ -247,7 +248,7 @@ export default class PreguntasFrecuentes extends Component {
         },
         {
           id: 26,
-          title: '¿Cómo calcular el monto a pagar por ILT?',
+          title: '¿Cómo calcular el monto\na pagar por ILT?',
           body:
             'La prestación dineraria durante una Incapacidad Laboral Temporaria se calcula conforme a las pautas dispuestas por el artículo 208 de la Ley de Contrato de Trabajo N° 20.744 (t.o. 1976) y sus modificatorias, incluye la totalidad de los conceptos que debió percibir el damnificado al momento de la primera manifestación invalidante, sin tener en cuenta el tope máximo de remuneraciones sujetas a aportes que estipula la ley previsional.\n\n' +
             'Si el salario estuviere integrado por remuneraciones variables, se liquidará según el promedio de lo percibido en el último semestre de prestación de servicios. La prestación dineraria se debe ajustar conforme a los aumentos que durante el período de interrupción fueren acordados a los de su misma categoría por aplicación de una norma legal, convención colectiva de trabajo o decisión del empleador.\n\n' +
@@ -304,7 +305,7 @@ export default class PreguntasFrecuentes extends Component {
         {
           id: 32,
           title:
-            '¿Qué documentación es obligatoria para\nel pago de la prestación dineraria?',
+            '¿Qué documentación es\nobligatoria para el pago de\nla prestación dineraria?',
           body:
             'Obligación del Empleador:\n\n' +
             'Certificación de Remuneraciones debidamente certificada. Si el accidentado tuviera antigüedad mayor al año: recibos de sueldo de los 12 meses anteriores a la fecha del siniestro (en los casos de trabajadores sujetos a variables por producción deberá presentar el recibo de ajuste de producción del periodo trabajado en que ocurriera el siniestro). Si el accidentado tuviera antigüedad menor al año: recibos de sueldo de los meses trabajados incluyendo el mes del siniestro (en los casos de trabajadores sujetos a variables por producción deberá presentar el recibo de ajuste de producción del periodo trabajado en que ocurriera el siniestro).\n\n' +
@@ -336,6 +337,7 @@ export default class PreguntasFrecuentes extends Component {
       itemActivo: 0,
     };
   }
+  //#endregion
 
   //Funciones
   updateItemActivo = itemActivo => {
@@ -362,8 +364,8 @@ export default class PreguntasFrecuentes extends Component {
         width: '90%',
         marginLeft: 20,
         //height: 30,
-        alignItems: 'center',
-        justifyContent: 'center',
+        //alignItems: 'center',
+        //justifyContent: 'center',
         alignSelf: 'stretch',
         marginTop: 2,
         padding: 7,
@@ -377,7 +379,7 @@ export default class PreguntasFrecuentes extends Component {
       },
       header: {
         paddingVertical: 5,
-        paddingHorizontal: 12,
+        paddingHorizontal: 5,
         flexWrap: 'wrap',
         flexDirection: 'row',
         alignItems: 'center',
@@ -386,21 +388,23 @@ export default class PreguntasFrecuentes extends Component {
         color: 'white',
         fontSize: 18,
         width: '100%',
-        textAlign: 'left',
+        fontFamily: 'Montserrat-Medium',
+        marginLeft: 30,
       },
       bodyText: {
         color: 'white',
         fontSize: 16,
         width: '90%',
-        backgroundColor: 'green',
+        backgroundColor: '#169D00',
         borderRadius: 30,
         borderWidth: 1,
-        borderColor: 'green',
+        borderColor: '#169D00',
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'stretch',
         padding: 20,
         marginLeft: 20,
+        fontFamily: 'Montserrat-Medium',
       },
     });
 

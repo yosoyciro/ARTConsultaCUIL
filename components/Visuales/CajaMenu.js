@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, Image} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {TouchableOpacity} from 'react-native';
 
 export default class CajaMenu extends Component {
   constructor(props) {
@@ -36,6 +36,7 @@ export default class CajaMenu extends Component {
       texto: {
         color: 'white',
         fontSize: 20,
+        fontFamily: 'Montserrat-Bold',
       },
       icono: {
         padding: 5,

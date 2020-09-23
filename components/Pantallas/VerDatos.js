@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
     color: 'grey',
     fontSize: 18,
     justifyContent: 'center',
+    fontFamily: 'Montserrat-Medium',
   },
   backgroundChicoIzq: {
     borderWidth: 1,
@@ -157,6 +158,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     justifyContent: 'center',
     marginRight: 20,
+    fontFamily: 'Montserrat-Medium',
   },
   backgroundChicoDer: {
     borderWidth: 1,
@@ -171,5 +173,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     justifyContent: 'center',
     marginLeft: 20,
+    fontFamily: 'Montserrat-Medium',
   },
 });
