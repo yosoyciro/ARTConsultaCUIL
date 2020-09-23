@@ -71,6 +71,8 @@ const styles = StyleSheet.create({
     fontSize: 34,
     color: 'white',
     fontWeight: 'bold',
+    marginLeft: 10,
+    fontFamily: 'Montserrat',
   },
   icono: {
     padding: 5,

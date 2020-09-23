@@ -15,7 +15,7 @@ export default class App extends Component {
 
   componentDidMount() {
     Orientation.lockToPortrait();
-    console.log('Inicio showSplash: ' + this.state.showSplash);
+    //console.log('Inicio showSplash: ' + this.state.showSplash);
     setTimeout(() => {
       this.setState({showSplash: false});
     }, 3000);

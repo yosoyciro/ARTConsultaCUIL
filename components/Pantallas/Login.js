@@ -12,7 +12,7 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cuil: 20227180871,
+      cuil: 0,
       verGrilla: false,
       cuilValido: false,
       resultado: null,
@@ -60,6 +60,7 @@ export default class Login extends Component {
       texto: {
         fontSize: 20,
         color: 'white',
+        fontFamily: 'Montserrat',
       },
     });
 
@@ -76,7 +77,7 @@ export default class Login extends Component {
                 value={this.state.cuil}
                 placeholder="CUIL/CUIT"
                 keyboardType={'numeric'}
-                defaultValue="20227180871"
+                //defaultValue="20227180871"
               />
               <TouchableOpacity
                 style={styles.ingresarButtonStyle}
@@ -94,14 +95,14 @@ export default class Login extends Component {
   }
 
   onPress = async () => {
-    console.log('inicia login ' + this.state.cuil);
+    //console.log('inicia login ' + this.state.cuil);
     this.setState({loading: !this.state.loading});
     const esCUILValido = await verificarCUIL(this.state.cuil);
-    console.log('esCUILValido: ' + esCUILValido);
+    //console.log('esCUILValido: ' + esCUILValido);
     switch (esCUILValido) {
       case false:
         this.setState({loading: !this.state.loading});
-        Alert.alert('CUIL inválido');
+        Alert.alert('Formato de CUIL incorrecto');
         break;
 
       case true:
