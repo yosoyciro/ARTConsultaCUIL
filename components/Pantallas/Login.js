@@ -4,11 +4,11 @@ import Spinner from '../Visuales/Spinner';
 import Background from '../Visuales/Background';
 import verificarCUIL from '../../functions/VerificarCUIL';
 import LoginCUIL from '../../api/AfiliadoDatos/LoginCUIL';
-//import {onSignIn} from './auth';
 import Header from '../Visuales/Header';
 import {TouchableOpacity} from 'react-native';
 import Splash from '../Visuales/Splash';
 import BuscarPorCUILCompleto from '../../api/AfiliadoDatos/BuscarPorCUILCompleto';
+import {Logged} from '../../functions/Auth';
 
 export default class Login extends Component {
   constructor(props) {
@@ -16,22 +16,18 @@ export default class Login extends Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.state = {
       cuil: 20227180871,
-      verGrilla: false,
       cuilValido: false,
       resultado: null,
       nombre: '',
       loading: false,
       showSplash: true,
-      isLogged: true,
     };
   }
 
   componentDidMount() {
-    //Orientation.lockToPortrait();
-    console.log('Inicio showSplash: ' + this.state.showSplash);
     setTimeout(() => {
       this.setState({showSplash: false});
-    }, 3000);
+    }, 4000);
   }
 
   render() {
@@ -164,6 +160,8 @@ export default class Login extends Component {
       afiliadoDatos => {
         //console.log(JSON.stringify(afiliadoDatos));
         this.setState({afiliadoDatos});
+        //Guardo en el storage el usuario logueado
+        Logged(afiliadoDatos);
         this.props.handleLogin(afiliadoDatos);
       },
       error => {

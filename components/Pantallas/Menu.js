@@ -4,6 +4,8 @@ import Spinner from '../Visuales/Spinner';
 import Emergencia from '../Visuales/Emergencia';
 import CajaMenu from '../Visuales/CajaMenu';
 import Login from './Login';
+import {isLogged, userLoggedDelete} from '../../functions/Auth';
+//import {isLogged} from '../../functions/Auth';
 
 export default class Menu extends Component {
   constructor(props) {
@@ -12,17 +14,33 @@ export default class Menu extends Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.state = {
       afiliadoDatos: [],
-      loading: false,
-      isLogged: false,
+      loading: true,
+      //isLogged: false,
     };
   }
 
   componentDidMount() {
     //Verifico en el storage si el usuario está logueado
+    isLogged().then(res => {
+      //console.log('[Menu] - Respuesta isLogged: ' + res);
+      this.setState({loading: false});
+      switch (res) {
+        case null:
+          break;
+
+        default:
+          this.setState({afiliadoDatos: res.afiliadoDatos});
+          break;
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    userLoggedDelete();
   }
 
   handleLogin(afiliadoDatos) {
-    this.setState({isLogged: !this.state.isLogged, afiliadoDatos});
+    this.setState({afiliadoDatos});
   }
 
   handleCajaMenu(id) {
@@ -51,6 +69,8 @@ export default class Menu extends Component {
   }
 
   render() {
+    console.log('[Menu] this.state.afiliadoDatos: ' + this.state.afiliadoDatos);
+
     const styles = StyleSheet.create({
       container: {
         alignSelf: 'stretch',
@@ -65,7 +85,7 @@ export default class Menu extends Component {
           <Spinner />
         ) : (
           <>
-            {this.state.isLogged === false ? (
+            {this.state.afiliadoDatos.length === 0 ? (
               <Login handleLogin={this.handleLogin} />
             ) : (
               <>
