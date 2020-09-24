@@ -7,6 +7,8 @@ import VerDatos from '../Pantallas/VerDatos';
 //import Credencial from '../../screens/drawer/Credencial';
 import PreguntasFrecuentes from '../Pantallas/PreguntasFrecuentes';
 import DatosUtiles from '../Pantallas/DatosUtiles';
+import Medicos from '../Pantallas/Medicos';
+import Farmacias from '../Pantallas/Farmacias';
 
 //const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -68,6 +70,16 @@ export default class Layout extends React.Component {
           <Stack.Screen
             name="DatosUtiles"
             component={DatosUtiles}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Medicos"
+            component={Medicos}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Farmacias"
+            component={Farmacias}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

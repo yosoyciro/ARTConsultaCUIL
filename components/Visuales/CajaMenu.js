@@ -31,11 +31,11 @@ export default class CajaMenu extends Component {
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'stretch',
-        height: 50,
+        height: 40,
       },
       texto: {
         color: 'white',
-        fontSize: 20,
+        fontSize: 18,
         fontFamily: 'Montserrat-Bold',
       },
       icono: {

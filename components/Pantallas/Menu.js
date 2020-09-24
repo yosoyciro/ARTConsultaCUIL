@@ -5,6 +5,8 @@ import Emergencia from '../Visuales/Emergencia';
 import CajaMenu from '../Visuales/CajaMenu';
 import Login from './Login';
 import {isLogged, userLoggedDelete} from '../../functions/Auth';
+import {ScrollView} from 'react-native-gesture-handler';
+import CajaSubMenu from '../Visuales/CajaSubMenu';
 //import {isLogged} from '../../functions/Auth';
 
 export default class Menu extends Component {
@@ -15,6 +17,7 @@ export default class Menu extends Component {
     this.state = {
       afiliadoDatos: [],
       loading: true,
+      showRedPrestadores: false,
       //isLogged: false,
     };
   }
@@ -60,6 +63,15 @@ export default class Menu extends Component {
       case 6:
         this.props.navigation.navigate('DatosUtiles');
         break;
+      case 7:
+        this.setState({showRedPrestadores: !this.state.showRedPrestadores});
+        break;
+      case 71:
+        this.props.navigation.navigate('Medicos');
+        break;
+      case 72:
+        this.props.navigation.navigate('Farmacias');
+        break;
       case 8:
         this.props.navigation.navigate('PreguntasFrecuentes');
         break;
@@ -69,8 +81,6 @@ export default class Menu extends Component {
   }
 
   render() {
-    console.log('[Menu] this.state.afiliadoDatos: ' + this.state.afiliadoDatos);
-
     const styles = StyleSheet.create({
       container: {
         alignSelf: 'stretch',
@@ -90,7 +100,7 @@ export default class Menu extends Component {
             ) : (
               <>
                 <Emergencia backgroundColor="grey" />
-                <View style={styles.container}>
+                <ScrollView style={styles.container}>
                   <CajaMenu
                     handleCajaMenu={this.handleCajaMenu}
                     id={1}
@@ -127,19 +137,30 @@ export default class Menu extends Component {
                     texto="Datos Útiles"
                     disable={false}
                   />
-                  <CajaMenu
-                    handleCajaMenu={this.handleCajaMenu}
-                    id={7}
-                    texto="Red de Prestadores"
-                    disable={true}
-                  />
+                  {this.state.showRedPrestadores === false ? (
+                    <CajaMenu
+                      handleCajaMenu={this.handleCajaMenu}
+                      id={7}
+                      texto="Red de Prestadores"
+                      disable={false}
+                    />
+                  ) : (
+                    <>
+                      <CajaSubMenu
+                        handleCajaMenu={this.handleCajaMenu}
+                        id={7}
+                        texto="Red de Prestadores"
+                        disable={false}
+                      />
+                    </>
+                  )}
                   <CajaMenu
                     handleCajaMenu={this.handleCajaMenu}
                     id={8}
                     texto="Preguntas Frecuentes"
                     disable={false}
                   />
-                </View>
+                </ScrollView>
               </>
             )}
           </>
