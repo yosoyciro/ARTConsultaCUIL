@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.airbnb.android.react.maps.MapsPackage;
 import com.github.yamill.orientation.OrientationPackage;
 import com.github.yamill.orientation.OrientationPackage;
 import com.github.yamill.orientation.OrientationPackage;
@@ -33,6 +34,7 @@ public class MainApplication extends Application implements ReactApplication {
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
             //packages.add(new OrientationPackage());
+            //packages.add(new MapsPackage());
           return packages;
         }
 

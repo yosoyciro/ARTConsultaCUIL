@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Emergencia from '../Visuales/Emergencia';
 import Titulo from '../Visuales/Titulo';
 
 export default class Medicos extends Component {
   constructor(props) {
     super(props);
+    this.medicoSeleccionado = this.medicoSeleccionado.bind(this);
     this.state = {
       medicos: [
         {
@@ -19,14 +20,24 @@ export default class Medicos extends Component {
           id: 2,
           Nombre: 'Sanatorio Guemes',
           Direccion: 'Direccion2',
-          Latitud: 0,
-          Longitud: 0,
+          Latitud: -27.447563,
+          Longitud: -58.981154,
         },
       ],
     };
   }
 
+  medicoSeleccionado(nombre, direccion, latitud, longitud) {
+    this.props.navigation.navigate('Maps', {
+      latitud: latitud,
+      longitud: longitud,
+      nombre: nombre,
+      direccion: direccion,
+    });
+  }
+
   render() {
+    //#region  Estilos
     const styles = StyleSheet.create({
       container: {
         //marginTop: 10,
@@ -69,7 +80,16 @@ export default class Medicos extends Component {
         right: 20,
         position: 'absolute',
       },
+      button: {
+        marginTop: 7,
+        height: 25,
+        width: 25,
+        resizeMode: 'stretch',
+        right: 20,
+        position: 'absolute',
+      },
     });
+    //#endregion
 
     return (
       <>
@@ -79,18 +99,20 @@ export default class Medicos extends Component {
           {this.state.medicos.map((param, i) => {
             return (
               <View style={styles.medico}>
-                <Text
-                  style={styles.tituloText}
-                  onPress={() => {
-                    this.subMenu(param.id1);
-                  }}>
-                  {param.Nombre}
-                </Text>
+                <Text style={styles.tituloText}>{param.Nombre}</Text>
                 <Text style={styles.direccionText}>{param.Direccion}</Text>
-                <Image
-                  source={require('../../images/Atención-al-Cliente.png')}
-                  style={styles.icono}
-                />
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => {
+                    this.medicoSeleccionado(
+                      param.Nombre,
+                      param.Direccion,
+                      param.Latitud,
+                      param.Longitud,
+                    );
+                  }}>
+                  <Text>Mapa</Text>
+                </TouchableOpacity>
               </View>
             );
           })}

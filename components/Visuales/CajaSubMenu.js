@@ -134,7 +134,13 @@ export default class CajaSubMenu extends Component {
                   }}>
                   {param.titulo1}
                 </Text>
-                <Text style={styles.bodyText}>{param.titulo2}</Text>
+                <Text
+                  style={styles.bodyText}
+                  onPress={() => {
+                    this.subMenu(param.id2);
+                  }}>
+                  {param.titulo2}
+                </Text>
               </View>
             </>
           );
