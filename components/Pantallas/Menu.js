@@ -105,13 +105,11 @@ export default class Menu extends Component {
                     handleCajaMenu={this.handleCajaMenu}
                     id={1}
                     texto="Mis Datos"
-                    disable={false}
                   />
                   <CajaMenu
                     handleCajaMenu={this.handleCajaMenu}
                     id={2}
                     texto="Mi Credencial"
-                    disable={true}
                   />
                   <CajaMenu
                     handleCajaMenu={this.handleCajaMenu}

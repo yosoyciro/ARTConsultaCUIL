@@ -4,12 +4,12 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Menu from '../Pantallas/Menu';
 import VerDatos from '../Pantallas/VerDatos';
-//import Credencial from '../../screens/drawer/Credencial';
 import PreguntasFrecuentes from '../Pantallas/PreguntasFrecuentes';
 import DatosUtiles from '../Pantallas/DatosUtiles';
 import Medicos from '../Pantallas/Medicos';
 import Farmacias from '../Pantallas/Farmacias';
 import Maps from '../Visuales/Maps';
+import Credencial from '../Pantallas/Credencial';
 
 //const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -61,6 +61,11 @@ export default class Layout extends React.Component {
           <Stack.Screen
             name="VerDatos"
             component={VerDatos}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Credencial"
+            component={Credencial}
             options={{headerShown: false}}
           />
           <Stack.Screen

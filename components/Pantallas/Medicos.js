@@ -12,14 +12,14 @@ export default class Medicos extends Component {
         {
           id: 1,
           Nombre: 'Sanatorio Chaco',
-          Direccion: 'Direccion1',
+          Direccion: 'Direccion 1',
           Latitud: -27.451937,
           Longitud: -58.981913,
         },
         {
           id: 2,
           Nombre: 'Sanatorio Guemes',
-          Direccion: 'Direccion2',
+          Direccion: 'Direccion 2',
           Latitud: -27.447563,
           Longitud: -58.981154,
         },
