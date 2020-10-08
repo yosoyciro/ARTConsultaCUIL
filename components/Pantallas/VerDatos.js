@@ -1,8 +1,9 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, ScrollView} from 'react-native';
 import Emergencia from '../Visuales/Emergencia';
 import Titulo from '../Visuales/Titulo';
 import FormatearFechaCelda from '../../functions/FormatoFechaHora';
+import Header from '../Visuales/Header';
 
 export default function VerDatos(props) {
   //Datos transformados
@@ -24,7 +25,17 @@ export default function VerDatos(props) {
   const localidad =
     props.route.params.afiliado.SRTLocalidad !== null
       ? props.route.params.afiliado.SRTLocalidad.Nombre
-      : '';
+      : 'Sin Localidad';
+
+  const telefono =
+    props.route.params.afiliado.Telefono !== null
+      ? props.route.params.afiliado.Telefono
+      : 'Sin Telefono';
+
+  const email =
+    props.route.params.afiliado.eMail !== null
+      ? props.route.params.afiliado.eMail
+      : 'Sin eMail';
 
   switch (props.route.params.afiliado.EstadoCivil) {
     case 'C':
@@ -64,68 +75,76 @@ export default function VerDatos(props) {
       Sexo = 'No especificado';
       break;
   }
+
+  const direccion =
+    props.route.params.afiliado.DomicilioCalle +
+    ' ' +
+    props.route.params.afiliado.DomicilioNro;
+
+  const piso = props.route.params.afiliado.DomicilioPiso;
+  const depto = props.route.params.afiliado.DomicilioDpto;
+  const deptoDisplay = piso.trim() + '-' + depto.trim();
+
   return (
-    <View style={styles.container}>
+    <>
+      <Header />
       <Titulo titulo="Mis Datos" />
       <Emergencia backgroundColor="white" />
-      <View style={styles.containerText}>
-        <Text style={styles.background}>
-          {props.route.params.afiliado.Nombre}
-        </Text>
-      </View>
-      <View style={styles.containerText}>
-        <Text style={styles.background}>
-          {props.route.params.afiliado.DomicilioCalle}
-        </Text>
-      </View>
-      <View style={styles.containerText}>
-        <Text style={styles.backgroundChicoIzq}>Depto</Text>
-        <Text style={styles.backgroundChicoDer}>{codigoPostal}</Text>
-      </View>
-      <View style={styles.containerText}>
-        <Text style={styles.background}>{localidad}</Text>
-      </View>
-      <View style={styles.containerText}>
-        <Text style={styles.background}>
-          {props.route.params.afiliado.Telefono}
-        </Text>
-      </View>
-      <View style={styles.containerText}>
-        <Text style={styles.background}>
-          {props.route.params.afiliado.eMail}
-        </Text>
-      </View>
-      <View style={styles.containerText}>
-        <Text style={styles.background}>{Sexo}</Text>
-      </View>
-      <View style={styles.containerText}>
-        <Text style={styles.background}>{fechaNacimiento}</Text>
-      </View>
-      <View style={styles.containerText}>
-        <Text style={styles.background}>{EstadoCivil}</Text>
-      </View>
-      <View style={styles.containerText}>
-        <Text style={styles.background}>{pais}</Text>
-      </View>
-      <View style={styles.containerText}>
-        <Text style={styles.background}>CBU</Text>
-      </View>
-      <View style={styles.containerText}>
-        <Text style={styles.background}>
-          {props.route.params.afiliado.Cuil}
-        </Text>
-      </View>
-    </View>
+      <ScrollView style={styles.container}>
+        <View style={styles.containerText}>
+          <Text style={styles.background}>
+            {props.route.params.afiliado.Nombre}
+          </Text>
+        </View>
+        <View style={styles.containerText}>
+          <Text style={styles.background}>{direccion}</Text>
+        </View>
+        <View style={styles.containerText}>
+          <Text style={styles.backgroundChicoIzq}>{deptoDisplay}</Text>
+          <Text style={styles.backgroundChicoDer}>{codigoPostal}</Text>
+        </View>
+        <View style={styles.containerText}>
+          <Text style={styles.background}>{localidad}</Text>
+        </View>
+        <View style={styles.containerText}>
+          <Text style={styles.background}>{telefono}</Text>
+        </View>
+        <View style={styles.containerText}>
+          <Text style={styles.background}>{email}</Text>
+        </View>
+        <View style={styles.containerText}>
+          <Text style={styles.background}>{Sexo}</Text>
+        </View>
+        <View style={styles.containerText}>
+          <Text style={styles.background}>{fechaNacimiento}</Text>
+        </View>
+        <View style={styles.containerText}>
+          <Text style={styles.background}>{EstadoCivil}</Text>
+        </View>
+        <View style={styles.containerText}>
+          <Text style={styles.background}>{pais}</Text>
+        </View>
+        <View style={styles.containerText}>
+          <Text style={styles.background}>CBU</Text>
+        </View>
+        <View style={styles.containerText}>
+          <Text style={styles.background}>
+            {props.route.params.afiliado.Cuil}
+          </Text>
+        </View>
+      </ScrollView>
+    </>
   );
 }
 
+//#region Estilos
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     height: '100%',
   },
   containerText: {
-    marginTop: 10,
+    marginTop: 6,
     flexDirection: 'row',
     backgroundColor: 'white',
     justifyContent: 'center',
@@ -176,3 +195,4 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Medium',
   },
 });
+//#endregion

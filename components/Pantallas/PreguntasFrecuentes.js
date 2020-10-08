@@ -3,6 +3,7 @@ import {Text, View, StyleSheet, ScrollView} from 'react-native';
 import Emergencia from '../Visuales/Emergencia';
 import Titulo from '../Visuales/Titulo';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import Header from '../Visuales/Header';
 
 export default class PreguntasFrecuentes extends Component {
   //#region inicializador, constructor y preguntas
@@ -25,7 +26,7 @@ export default class PreguntasFrecuentes extends Component {
         {
           id: 3,
           title:
-            '¿Qué es un accidente de trabajo\ny una enfermedad profesional',
+            '¿Qué es un accidente de\ntrabajo y una\nenfermedad profesional',
           body:
             'Un accidente de trabajo es todo acontecimiento súbito y violento, ocurrido por el hecho o en ocasión del trabajo, o en el trayecto entre el domicilio del trabajador y su lugar de trabajo (y viceversa), siempre y cuando no lo hubiese interrumpido o alterado por causas ajenas al trabajo.\n\nUna enfermedad profesional es una patología causada por agentes que se encuentran en el ambiente de trabajo o por especiales condiciones en el mismo, potencialmente lesivas para la salud. Estos pueden ser físicos, químicos, biológicos o generadores de sobrecarga física para el trabajador expuesto. Es condición "sine qua non", que exista un vínculo inexcusable entre la enfermedad y la presencia en el trabajo de los agentes o condiciones que posibiliten la gestación de un daño a la salud. Es decir, debe existir una enfermedad o daño al organismo que provenga claramente de la exposición del trabajador a los agentes o condiciones causantes.\n\nLey N° 24.557',
         },
@@ -86,7 +87,7 @@ export default class PreguntasFrecuentes extends Component {
         {
           id: 13,
           title:
-            '¿Se puede modificar o incorporar\ncláusulas en los certificados\nde cobertura?',
+            '¿Se puede modificar o\nincorporar cláusulas en los\ncertificados de cobertura?',
           body:
             'El contenido de los certificados de cobertura que se emiten por la página Web o se solicitan en las Sucursales y responde a lo establecido en la normativa vigente y su texto cuenta con la aprobación de la Superintendencia de Riesgos del Trabajo, por lo que no se efectúan modificaciones y/o agregados en los mismos.',
         },
@@ -134,7 +135,7 @@ export default class PreguntasFrecuentes extends Component {
         {
           id: 18,
           title:
-            '¿Qué empresas están obligadas\na contar con un servicio de higiene\ny seguridad en el trabajo?',
+            '¿Qué empresas están obligadas\na contar con un servicio de\nhigiene y seguridad en el\ntrabajo?',
           body:
             'Todas las empresas deberán contar, por sí o a través de la contratación de un tercero, con un servicio brindado por profesionales técnicos calificados con el fin de dar cumplimiento a las normas de Higiene y Seguridad en el Trabajo.\n\n' +
             'Según el Art. 14 del Decreto 1.338/96, quedan exceptuadas de la obligación de tener asignación de profesionales técnicos en higiene y seguridad las siguientes entidades:\n\n' +
@@ -170,7 +171,7 @@ export default class PreguntasFrecuentes extends Component {
         {
           id: 22,
           title:
-            '¿Qué debe hacer un empleado\nante un\naccidente fuera\ndel ámbito laboral?',
+            '¿Qué debe hacer un empleado\nante un accidente fuera\ndel ámbito laboral?',
           body:
             'De permitirlo su estado de salud, deberá concurrir a su empresa y pedir a su superior una Solicitud de Atención Médica, y éste le indicará el lugar al cual debe dirigirse para su atención. De no ser posible llegar a su empresa, deberá comunicarse al 0800-(TEL CECAP), o dirigirse a alguno de los Centros Médicos que se encuentran en la cartilla de prestadores médicos de ART MUTUAL RURAL.\n\n' +
             'Deberá tener siempre a mano su Credencial de ART MUTUAL RURAL y anotar las direcciones de los centros de atención más cercanos a su domicilio y a su lugar de trabajo. Ante un accidente "in itinere", deberá realizar la correspondiente denuncia policial.',
@@ -350,6 +351,7 @@ export default class PreguntasFrecuentes extends Component {
   };
 
   render() {
+    //#region Estilos
     const styles = StyleSheet.create({
       container: {
         backgroundColor: 'white',
@@ -389,7 +391,7 @@ export default class PreguntasFrecuentes extends Component {
         fontSize: 18,
         width: '100%',
         fontFamily: 'Montserrat-Medium',
-        marginLeft: 30,
+        marginLeft: 20,
       },
       bodyText: {
         color: 'white',
@@ -407,9 +409,11 @@ export default class PreguntasFrecuentes extends Component {
         fontFamily: 'Montserrat-Medium',
       },
     });
+    //#endregion
 
     return (
       <>
+        <Header />
         <Titulo titulo="Preguntas Frecuentes" />
         <Emergencia backgroundColor="white" />
         <ScrollView style={styles.container}>

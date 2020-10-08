@@ -15,7 +15,7 @@ export default class Login extends Component {
     super(props);
     this.handleLogin = this.handleLogin.bind(this);
     this.state = {
-      cuil: 20227180871,
+      cuil: 0,
       cuilValido: false,
       resultado: null,
       nombre: '',
@@ -31,7 +31,7 @@ export default class Login extends Component {
   }
 
   render() {
-    //Estilos
+    //#region Estilos
     const styles = StyleSheet.create({
       background: {
         alignSelf: 'stretch',
@@ -72,6 +72,7 @@ export default class Login extends Component {
         fontFamily: 'Montserrat-Medium',
       },
     });
+    //#endregion
 
     return (
       <>
@@ -90,7 +91,7 @@ export default class Login extends Component {
                     value={this.state.cuil}
                     placeholder="CUIL/CUIT"
                     keyboardType={'numeric'}
-                    defaultValue="20227180871"
+                    //defaultValue="20394152960"
                   />
                   <TouchableOpacity
                     style={styles.ingresarButtonStyle}

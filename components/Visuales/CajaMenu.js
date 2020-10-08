@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native';
+import IconoMenu from './IconoMenu';
 
 export default class CajaMenu extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ export default class CajaMenu extends Component {
     this.props.handleCajaMenu(this.props.id);
   }
   render() {
+    //#region  Estilos
     const styles = StyleSheet.create({
       container: {
         justifyContent: 'center',
@@ -19,6 +21,7 @@ export default class CajaMenu extends Component {
         alignSelf: 'stretch',
       },
       cajas: {
+        display: this.props.disable === true ? 'none' : 'flex',
         flexDirection: 'row',
         marginTop: 15,
         padding: 10,
@@ -35,7 +38,7 @@ export default class CajaMenu extends Component {
       },
       texto: {
         color: 'white',
-        fontSize: 18,
+        fontSize: 16,
         fontFamily: 'Montserrat-Bold',
       },
       icono: {
@@ -49,18 +52,15 @@ export default class CajaMenu extends Component {
         position: 'absolute',
       },
     });
+    //#endregion
 
     return (
       <View style={styles.container}>
         <TouchableOpacity
-          disabled={this.props.disable}
           style={styles.cajas}
           activeOpacity={0.5}
           onPress={this.onPress}>
-          <Image
-            source={require('../../images/Atención-al-Cliente.png')}
-            style={styles.icono}
-          />
+          <IconoMenu id={this.props.id} />
           <Text style={styles.texto}> {this.props.texto} </Text>
         </TouchableOpacity>
       </View>

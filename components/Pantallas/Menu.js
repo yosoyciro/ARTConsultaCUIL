@@ -7,6 +7,7 @@ import Login from './Login';
 import {isLogged, userLoggedDelete} from '../../functions/Auth';
 import {ScrollView} from 'react-native-gesture-handler';
 import CajaSubMenu from '../Visuales/CajaSubMenu';
+import Header from '../Visuales/Header';
 //import {isLogged} from '../../functions/Auth';
 
 export default class Menu extends Component {
@@ -60,6 +61,9 @@ export default class Menu extends Component {
           afiliado: this.state.afiliadoDatos,
         });
         break;
+      case 3:
+        this.props.navigation.navigate('ProcedimientoDenuncia');
+        break;
       case 6:
         this.props.navigation.navigate('DatosUtiles');
         break;
@@ -86,6 +90,7 @@ export default class Menu extends Component {
         alignSelf: 'stretch',
         backgroundColor: '#D2D3D5',
         height: '100%',
+        //marginTop: 1,
       },
     });
 
@@ -99,12 +104,14 @@ export default class Menu extends Component {
               <Login handleLogin={this.handleLogin} />
             ) : (
               <>
+                <Header />
                 <Emergencia backgroundColor="grey" />
                 <ScrollView style={styles.container}>
                   <CajaMenu
                     handleCajaMenu={this.handleCajaMenu}
                     id={1}
                     texto="Mis Datos"
+                    disable={true}
                   />
                   <CajaMenu
                     handleCajaMenu={this.handleCajaMenu}
@@ -115,7 +122,6 @@ export default class Menu extends Component {
                     handleCajaMenu={this.handleCajaMenu}
                     id={3}
                     texto="Procedimiento de Denuncia"
-                    disable={true}
                   />
                   <CajaMenu
                     handleCajaMenu={this.handleCajaMenu}
@@ -140,7 +146,7 @@ export default class Menu extends Component {
                       handleCajaMenu={this.handleCajaMenu}
                       id={7}
                       texto="Red de Prestadores"
-                      disable={false}
+                      disable={true}
                     />
                   ) : (
                     <>

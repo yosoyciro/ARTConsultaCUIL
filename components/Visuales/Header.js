@@ -4,7 +4,7 @@ import {Image, StyleSheet} from 'react-native';
 export default function Header() {
   return (
     <Image
-      source={require('../../images/Header.jpg')}
+      source={require('../../images/Header.png')}
       resizeMode="contain"
       backgroundColor="white"
       style={styles.backgroundImage}

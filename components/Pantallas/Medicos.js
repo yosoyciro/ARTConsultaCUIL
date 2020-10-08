@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import Emergencia from '../Visuales/Emergencia';
+import Header from '../Visuales/Header';
 import Titulo from '../Visuales/Titulo';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class Medicos extends Component {
   constructor(props) {
@@ -74,11 +76,12 @@ export default class Medicos extends Component {
         //padding: 5,
         marginTop: 20,
         margin: 5,
-        height: 25,
-        width: 25,
-        resizeMode: 'stretch',
+        height: 50,
+        width: 50,
+        resizeMode: 'cover',
         right: 20,
         position: 'absolute',
+        fontSize: 25,
       },
       button: {
         marginTop: 7,
@@ -93,6 +96,7 @@ export default class Medicos extends Component {
 
     return (
       <>
+        <Header />
         <Titulo titulo="Médicos" />
         <Emergencia backgroundColor="white" />
         <View style={styles.container}>
@@ -101,8 +105,9 @@ export default class Medicos extends Component {
               <View style={styles.medico}>
                 <Text style={styles.tituloText}>{param.Nombre}</Text>
                 <Text style={styles.direccionText}>{param.Direccion}</Text>
-                <TouchableOpacity
-                  style={styles.button}
+                <Icon
+                  style={styles.icono}
+                  name="map-marker"
                   onPress={() => {
                     this.medicoSeleccionado(
                       param.Nombre,
@@ -110,9 +115,8 @@ export default class Medicos extends Component {
                       param.Latitud,
                       param.Longitud,
                     );
-                  }}>
-                  <Text>Mapa</Text>
-                </TouchableOpacity>
+                  }}
+                />
               </View>
             );
           })}

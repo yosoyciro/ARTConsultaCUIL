@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
 import MapView from 'react-native-maps';
 import {Marker} from 'react-native-maps';
-import TituloMedico from './TituloMedico';
+import Header from '../Visuales/Header';
+import TituloMedico from '../Visuales/TituloMedico';
 
 export default class Maps extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ export default class Maps extends Component {
     console.log('latitud  ' + this.state.latitud);
     return (
       <>
+        <Header />
         <View>
           <TituloMedico
             nombre={this.props.route.params.nombre}
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     alignItems: 'center',
     justifyContent: 'flex-end',
-    marginTop: 80,
+    marginTop: 125,
   },
   mapStyle: {
     position: 'absolute',

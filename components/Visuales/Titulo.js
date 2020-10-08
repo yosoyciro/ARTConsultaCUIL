@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   background: {
     width: '100%',
     color: 'white',
-    fontSize: 27,
+    fontSize: 25,
     justifyContent: 'center',
     textAlign: 'center',
     fontFamily: 'Montserrat-Medium',

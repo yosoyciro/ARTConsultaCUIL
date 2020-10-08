@@ -8,8 +8,9 @@ import PreguntasFrecuentes from '../Pantallas/PreguntasFrecuentes';
 import DatosUtiles from '../Pantallas/DatosUtiles';
 import Medicos from '../Pantallas/Medicos';
 import Farmacias from '../Pantallas/Farmacias';
-import Maps from '../Visuales/Maps';
+import Maps from '../Pantallas/Maps';
 import Credencial from '../Pantallas/Credencial';
+import ProcedimientoDenuncia from '../Pantallas/ProcedimientoDenuncia';
 
 //const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -66,6 +67,11 @@ export default class Layout extends React.Component {
           <Stack.Screen
             name="Credencial"
             component={Credencial}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="ProcedimientoDenuncia"
+            component={ProcedimientoDenuncia}
             options={{headerShown: false}}
           />
           <Stack.Screen
